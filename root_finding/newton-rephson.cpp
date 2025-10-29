@@ -17,13 +17,19 @@ double df(double x) {
 void newton(double x0, double tol = 1e-6, int max_it=100) {
     double x1;
     int it=1;
+
     cout << fixed << setprecision(6);
     cout << "Iter\t X0\t\t X1\t\t f(x1)\n";
+
     while(it<max_it){
-        x1=x0-f(x0)/df(x0);
+        x1 = x0 - f(x0) / df(x0);
+
         cout << it << "\t" << x0 << "\t" << x1 << "\t" << f(x1) << endl;
-        if(fabs(x1-x0)<tol) break;
-        x0=x1;it++;
+        
+        if (fabs(x1 - x0) < tol)
+            break;
+        x0 = x1;
+        it++;
     }
     cout << "Root "<<x1<<endl;
 }
